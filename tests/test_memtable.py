@@ -1,55 +1,81 @@
 from lsmtree.memtable import MemTable, TOMBSTONE
-from lsmtree.skiplist import NOT_FOUND‚‚™Yˆ\İÜ]Ø[™ÙÙ]
+from lsmtree.skiplist import NOT_FOUND
 
-N‚ˆ]HY[UX›J
-Bˆ]œ]
-ˆ˜H‹ˆŒHŠBˆ\ÜÙ\]™Ù]
-ˆ˜HŠHOHˆŒH‚ˆ\ÜÙ\]™Ù]
-ˆ›Z\ÜÚ[™ÈŠH\È“ÕÑ“ÕS‘‚‚™Yˆ\İÜ]Ûİ™\Üš]J
-N‚ˆ]HY[UX›J
-Bˆ]œ]
-ˆ˜H‹ˆŒHŠBˆ]œ]
-ˆ˜H‹ˆŒˆŠBˆ\ÜÙ\]™Ù]
-ˆ˜HŠHOHˆŒˆ‚ˆ\ÜÙ\[Š]
-HOHB‚‚™Yˆ\İÙ[]WÜÙ]×İÛXœİÛ™WÛ›İÜ™[[İ˜[
 
-N‚ˆ]HY[UX›J
-Bˆ]œ]
-ˆ˜H‹ˆŒHŠBˆ]™[]Jˆ˜HŠBˆ\ÜÙ\]™Ù]
-ˆ˜HŠH\ÈÓP”ÕÓ‘Bˆ\ÜÙ\[Š]
-HOHHÈÛXœİÛ™Hİ[ØØİ\Y\ÈHÛİÈ™H›\ÚY‚‚™Yˆ\İÙ[]WÛZ\ÜÚ[™×ÚÙ^WÜİ[Ü™XÛÜ™×İÛXœİÛ™J
-N‚ˆ]HY[UX›J
-Bˆ]™[]Jˆ›™]™\‹Y^\İYŠBˆ\ÜÙ\]™Ù]
-ˆ›™]™\‹Y^\İYŠH\ÈÓP”ÕÓ‘B‚‚™Yˆ\İÚ\×Ù[\J
-N‚ˆ]HY[UX›J
-Bˆ\ÜÙ\]š\×Ù[\J
-H\ÈYBˆ]œ]
-ˆ˜H‹ˆŒHŠBˆ\ÜÙ\]š\×Ù[\J
-H\È˜[ÙB‚‚™Yˆ\İÚ][\×ÜÛÜY
+def test_put_and_get():
+    mt = MemTable()
+    mt.put(b"a", b"1")
+    assert mt.get(b"a") == b"1"
+    assert mt.get(b"missing") is NOT_FOUND
 
-N‚ˆ]HY[UX›J
-Bˆ]œ]
-ˆ˜È‹ˆŒÈŠBˆ]œ]
-ˆ˜H‹ˆŒHŠBˆ]œ]
-ˆ˜ˆ‹ˆŒˆŠBˆ\ÜÙ\ÚÈ›ÜˆËÈ[ˆ]š][\Ê
-WHOHØˆ˜H‹ˆ˜ˆ‹ˆ˜È—B‚‚™Yˆ\İØ\›ŞÜÚ^™WØ]\×İ˜XÚÜ×Ü]×Ø[™Ûİ™\Üš]\Ê
-N‚ˆ]HY[UX›J
-Bˆ\ÜÙ\]˜\›ŞÜÚ^™WØ]\ÈOHˆ]œ]
-ˆ˜Xˆ‹ˆ˜ÙHŠHÈˆ
-ÈÈHBˆ\ÜÙ\]˜\›ŞÜÚ^™WØ]\ÈOHBˆ]œ]
-ˆ˜Xˆ‹ˆˆŠHÈİ™\Üš]Nˆˆ
-ÈHHÂˆ\ÜÙ\]˜\›ŞÜÚ^™WØ]\ÈOHÂ‚‚™Yˆ\İØ\›ŞÜÚ^™WØ]\×İ˜XÚÜ×Ù[]WÛÙ—Ù^\İ[™×ÚÙ^J
-N‚ˆ]HY[UX›J
-Bˆ]œ]
-ˆšÙ^H‹ˆ˜[YHŠHÈÈ
-ÈHHˆÚ^™WØ™Y›Ü™HH]˜\›ŞÜÚ^™WØ]\Âˆ]™[]JˆšÙ^HŠBˆÈÛXœİÛ™Nˆ˜[YH]\È›ÈÛ™Ù\ˆÛİ[YÙ^H[™İ™[XZ[œÂˆ\ÜÙ\]˜\›ŞÜÚ^™WØ]\ÈOH[ŠˆšÙ^HŠBˆ\ÜÙ\]˜\›ŞÜÚ^™WØ]\ÈÚ^™WØ™Y›Ü™B‚‚™Yˆ\İÜ˜[™ÙWÛİ™\—ÛY[]X›J
-N‚ˆ]HY[UX›J
-Bˆ›ÜˆÈ[ˆØˆ˜H‹ˆ˜ˆ‹ˆ˜È‹ˆ™—N‚ˆ]œ]
-ËË\\Š
-JBˆ\ÜÙ\ÚÈ›ÜˆËÈ[ˆ]œ˜[™ÙJˆ˜ˆ‹ˆ˜ÈŠWHOHØˆ˜ˆ‹ˆ˜È—B‚‚™Yˆ\İØÛX\—Ü™\Ù]×Üİ]J
-N‚ˆ]HY[UX›J
-Bˆ]œ]
-ˆ˜H‹ˆŒHŠBˆ]˜ÛX\Š
-Bˆ\ÜÙ\]š\×Ù[\J
-Bˆ\ÜÙ\]˜\›ŞÜÚ^™WØ]\ÈOHˆ\ÜÙ\]™Ù]
-ˆ˜HŠH\È“ÕÑ“ÕS‘
+
+def test_put_overwrite():
+    mt = MemTable()
+    mt.put(b"a", b"1")
+    mt.put(b"a", b"2")
+    assert mt.get(b"a") == b"2"
+    assert len(mt) == 1
+
+
+def test_delete_sets_tombstone_not_removal():
+    mt = MemTable()
+    mt.put(b"a", b"1")
+    mt.delete(b"a")
+    assert mt.get(b"a") is TOMBSTONE
+    assert len(mt) == 1  # tombstone still occupies a slot, to be flushed
+
+
+def test_delete_missing_key_still_records_tombstone():
+    mt = MemTable()
+    mt.delete(b"never-existed")
+    assert mt.get(b"never-existed") is TOMBSTONE
+
+
+def test_is_empty():
+    mt = MemTable()
+    assert mt.is_empty() is True
+    mt.put(b"a", b"1")
+    assert mt.is_empty() is False
+
+
+def test_items_sorted():
+    mt = MemTable()
+    mt.put(b"c", b"3")
+    mt.put(b"a", b"1")
+    mt.put(b"b", b"2")
+    assert [k for k, _ in mt.items()] == [b"a", b"b", b"c"]
+
+
+def test_approx_size_bytes_tracks_puts_and_overwrites():
+    mt = MemTable()
+    assert mt.approx_size_bytes == 0
+    mt.put(b"ab", b"cde")  # 2 + 3 = 5
+    assert mt.approx_size_bytes == 5
+    mt.put(b"ab", b"z")  # overwrite: 2 + 1 = 3
+    assert mt.approx_size_bytes == 3
+
+
+def test_approx_size_bytes_tracks_delete_of_existing_key():
+    mt = MemTable()
+    mt.put(b"key", b"value")  # 3 + 5 = 8
+    size_before = mt.approx_size_bytes
+    mt.delete(b"key")
+    # tombstone: value bytes no longer counted, key length remains
+    assert mt.approx_size_bytes == len(b"key")
+    assert mt.approx_size_bytes < size_before
+
+
+def test_range_over_memtable():
+    mt = MemTable()
+    for k in [b"a", b"b", b"c", b"d"]:
+        mt.put(k, k.upper())
+    assert [k for k, _ in mt.range(b"b", b"c")] == [b"b", b"c"]
+
+
+def test_clear_resets_state():
+    mt = MemTable()
+    mt.put(b"a", b"1")
+    mt.clear()
+    assert mt.is_empty()
+    assert mt.approx_size_bytes == 0
+    assert mt.get(b"a") is NOT_FOUND
