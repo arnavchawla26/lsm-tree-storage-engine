@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lsm-tree-storage-engine"
+version = "0.1.0"
+description = "A from-scratch LSM-tree key-value storage engine: memtable, SSTables, bloom filters, WAL crash recovery, and size-tiered compaction."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Arnav Chawla" }]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+lsmkv = "lsmtree.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["lsmtree*"]
